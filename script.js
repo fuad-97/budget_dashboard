@@ -24,7 +24,10 @@ const translations = {
     entries: "entries",
     months: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
     alertMissingSheets: "Missing 'Income' or 'Expenses' sheet in Excel file.",
-    alertInvalidFile: "Could not read the Excel file. Please try again."
+    alertInvalidFile: "Could not read the Excel file. Please try again.",
+    clearData: "Clear income & expenses",
+    clearConfirm: "This will remove local income and expense entries. Continue?",
+    clearSuccess: "Cleared local income and expenses."
   },
   ar: {
     appTitle: "لوحة الميزانية الشخصية",
@@ -50,7 +53,10 @@ const translations = {
     entries: "عملية",
     months: ["يناير","فبراير","مارس","أبريل","مايو","يونيو","يوليو","أغسطس","سبتمبر","أكتوبر","نوفمبر","ديسمبر"],
     alertMissingSheets: "ملف Excel لا يحتوي على ورقة Income أو Expenses.",
-    alertInvalidFile: "تعذر قراءة الملف. حاول مرة أخرى."
+    alertInvalidFile: "تعذر قراءة الملف. حاول مرة أخرى.",
+    clearData: "حذف الدخل والمصروفات",
+    clearConfirm: "سيتم حذف بيانات الدخل والمصروفات المحلية. هل تريد المتابعة؟",
+    clearSuccess: "تم حذف الدخل والمصروفات المحلية."
   }
 };
 
@@ -308,6 +314,15 @@ function init() {
     if (typeof exportToExcel === "function") {
       exportToExcel();
     }
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", () => {
+    const dict = translations[currentLang];
+    if (!confirm(dict.clearConfirm)) return;
+    localStorage.removeItem(LS_KEYS.mobileIncome);
+    localStorage.removeItem(LS_KEYS.mobileExpenses);
+    updateUI();
+    alert(dict.clearSuccess);
   });
 
   window.addEventListener("storage", () => updateUI());
