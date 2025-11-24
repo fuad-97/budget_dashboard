@@ -33,17 +33,18 @@
           <h2 data-i18n="importTitle">Import Excel</h2>
           <p class="hint" data-i18n="importHint">Upload a workbook with sheets named Income and Expenses.</p>
         </div>
-        <div class="badge">
-          <span>•</span>
-          <span data-i18n="localOnly">Local only</span>
-        </div>
+      <div class="badge">
+        <span>•</span>
+        <span data-i18n="localOnly">Local only</span>
       </div>
-      <div class="controls">
-        <input type="file" id="excelFile" accept=".xlsx,.xls" />
-        <button class="btn btn-primary" id="exportBtn" data-i18n="exportExcel">Export to Excel</button>
-      </div>
-      <p class="hint" data-i18n="importNote">No server required. Everything stays in your browser.</p>
-    </section>
+    </div>
+    <div class="controls">
+      <input type="file" id="excelFile" accept=".xlsx,.xls" />
+      <button class="btn btn-danger" id="clearBtn" data-i18n="clearData">Clear income & expenses</button>
+      <button class="btn btn-primary" id="exportBtn" data-i18n="exportExcel">Export to Excel</button>
+    </div>
+    <p class="hint" data-i18n="importNote">No server required. Everything stays in your browser.</p>
+  </section>
 
     <section class="grid grid-3">
       <div class="card kpi">
