@@ -427,6 +427,11 @@ tbody tr:hover {
   border-color: rgba(56, 189, 248, 0.3);
 }
 
+.table-action.deduct {
+  color: var(--success);
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
 .table-action.delete {
   color: var(--danger);
   border-color: rgba(249, 115, 22, 0.35);
