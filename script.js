@@ -163,13 +163,16 @@ function buildSummary() {
   recurring.forEach(item => {
     const amount = Number(item.amount || 0);
     if (isNaN(amount)) return;
-    totalExpenses += amount * 12;
     for (let i = 0; i < 12; i++) {
       expensesByMonth[i] += amount;
     }
     const cat = item.category || "Recurring";
     expensesByCategory[cat] = (expensesByCategory[cat] || 0) + amount * 12;
   });
+
+  // Normalize totals after recurring adjustments
+  totalIncome = incomeByMonth.reduce((a, b) => a + b, 0);
+  totalExpenses = expensesByMonth.reduce((a, b) => a + b, 0);
 
   const netByMonth = incomeByMonth.map((v, i) => v - expensesByMonth[i]);
   const netBalance = totalIncome - totalExpenses;
