@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Recurring Expenses</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="recurring.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span data-i18n="pageTitle">Recurring Monthly Expenses</span>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html" data-i18n="linkDashboard">Dashboard</a>
+      <a href="add-income.html" data-i18n="linkAddIncome">Add Income</a>
+      <a href="add-expense.html" data-i18n="linkAddExpense">Add Expense</a>
+      <a href="extract-sms.html" data-i18n="linkSMS">Extract SMS</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active">EN</button>
+      <button id="btn-ar" class="lang-btn">عربي</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero-card">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="formTitle">Add a recurring monthly expense</h2>
+          <p class="hint" data-i18n="formHint">Subscriptions, rent, insurance, and all fixed costs live here.</p>
+        </div>
+        <div class="badge">
+          <span>•</span>
+          <span data-i18n="autosave">Autosaves locally</span>
+        </div>
+      </div>
+
+      <form id="expenseForm" class="recurring-form form-grid">
+        <label class="input-field">
+          <span data-i18n="name">Name</span>
+          <input type="text" id="expenseName" required placeholder="Netflix, Rent..." data-i18n-placeholder="namePlaceholder" />
+        </label>
+        <label class="input-field">
+          <span data-i18n="category">Category</span>
+          <input type="text" id="expenseCategory" required placeholder="Housing, Utilities..." data-i18n-placeholder="categoryPlaceholder" />
+        </label>
+        <label class="input-field">
+          <span data-i18n="amount">Monthly Amount</span>
+          <input type="number" id="expenseAmount" required min="0" step="0.001" placeholder="0.000" />
+        </label>
+        <div class="form-actions full-row">
+          <button type="submit" id="submitBtn" class="btn btn-primary" data-i18n="add">Add</button>
+          <button type="button" id="resetBtn" class="btn btn-ghost" data-i18n="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card table-card">
+      <div class="section-head">
+        <div>
+          <h3 data-i18n="tableTitle">Recurring expenses list</h3>
+          <p class="hint" data-i18n="tableHint">Saved locally and ready for the dashboard.</p>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="recurring-table">
+          <thead>
+            <tr>
+              <th data-i18n="name">Name</th>
+              <th data-i18n="category">Category</th>
+              <th data-i18n="amount">Monthly Amount</th>
+              <th class="actions-col" data-i18n="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="expensesBody"></tbody>
+        </table>
+        <div id="emptyState" class="empty-state" data-i18n="emptyState">No recurring expenses yet. Add your first item above.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footerText">Local, free, offline-friendly budget dashboard (HTML + Excel).</span>
+  </footer>
+
+  <script src="recurring.js" type="module"></script>
+</body>
+</html>

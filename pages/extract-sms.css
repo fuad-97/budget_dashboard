@@ -1,0 +1,43 @@
+.input-block textarea {
+  width: 100%;
+  background: rgba(12, 18, 34, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  color: #e5e7eb;
+  resize: vertical;
+  min-height: 180px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.input-block textarea:focus {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  outline: none;
+}
+
+.form-actions {
+  margin-top: 14px;
+}
+
+.result-card {
+  margin-top: 14px;
+  border-style: dashed;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.status {
+  margin-top: 10px;
+  color: var(--success);
+}
+
+@media (max-width: 720px) {
+  .form-actions .btn {
+    width: 100%;
+  }
+}

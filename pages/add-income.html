@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Add Income</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="add-income.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span data-i18n="pageTitle">Add Income</span>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html" data-i18n="linkDashboard">Dashboard</a>
+      <a href="add-expense.html" data-i18n="linkAddExpense">Add Expense</a>
+      <a href="recurring.html" data-i18n="linkRecurring">Recurring</a>
+      <a href="extract-sms.html" data-i18n="linkSMS">Extract SMS</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active">EN</button>
+      <button id="btn-ar" class="lang-btn">عربي</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero-card">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="formTitle">Add Income</h2>
+          <p class="hint" data-i18n="formHint">Record your income source, amount, and date.</p>
+        </div>
+        <div class="badge">
+          <span>•</span>
+          <span data-i18n="localOnly">Local only</span>
+        </div>
+      </div>
+
+      <div class="form-grid income-form">
+        <div class="input-block">
+          <label data-i18n="amountLabel">Amount (OMR)</label>
+          <input type="number" id="amount" step="0.001" placeholder="0.000" />
+        </div>
+
+        <div class="input-block">
+          <label data-i18n="sourceLabel">Income Source</label>
+          <input type="text" id="source" placeholder="Salary, refund, bonus..." />
+        </div>
+
+        <div class="input-block">
+          <label data-i18n="dateLabel">Date</label>
+          <input type="date" id="date" />
+        </div>
+
+        <div class="input-block full-row">
+          <label data-i18n="notesLabel">Notes</label>
+          <textarea id="notes" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" id="saveBtn" data-i18n="save">Save income</button>
+        <a href="../index.html" class="btn btn-ghost" data-i18n="cancel">Cancel</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footerText">Local, free, offline-friendly budget dashboard (HTML + Excel).</span>
+  </footer>
+
+  <script src="add-income.js"></script>
+</body>
+</html>

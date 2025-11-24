@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Extract Bank SMS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="extract-sms.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span data-i18n="pageTitle">Extract Bank SMS</span>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html" data-i18n="linkDashboard">Dashboard</a>
+      <a href="add-income.html" data-i18n="linkAddIncome">Add Income</a>
+      <a href="add-expense.html" data-i18n="linkAddExpense">Add Expense</a>
+      <a href="recurring.html" data-i18n="linkRecurring">Recurring</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active">EN</button>
+      <button id="btn-ar" class="lang-btn">عربي</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero-card">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="formTitle">Paste your bank SMS</h2>
+          <p class="hint" data-i18n="formHint">We detect type, amount, vendor, and store it locally.</p>
+        </div>
+        <div class="badge">
+          <span>•</span>
+          <span data-i18n="localOnly">Local only</span>
+        </div>
+      </div>
+
+      <div class="input-block">
+        <span data-i18n="messageLabel">Message</span>
+        <textarea id="smsText" rows="7" placeholder="Paste the SMS here" data-i18n-placeholder="messagePlaceholder"></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" id="analyzeBtn" data-i18n="analyze">Analyze message</button>
+        <a href="../index.html" class="btn btn-ghost" data-i18n="viewDashboard">View dashboard</a>
+      </div>
+
+      <div id="result" class="result-card card" hidden>
+        <h3 data-i18n="resultTitle">Detected details</h3>
+        <div class="result-grid">
+          <div>
+            <p class="hint" data-i18n="type">Type</p>
+            <p id="resType"></p>
+          </div>
+          <div>
+            <p class="hint" data-i18n="amount">Amount</p>
+            <p id="resAmount"></p>
+          </div>
+          <div>
+            <p class="hint" data-i18n="vendor">Vendor</p>
+            <p id="resVendor"></p>
+          </div>
+          <div>
+            <p class="hint" data-i18n="date">Date</p>
+            <p id="resDate"></p>
+          </div>
+        </div>
+        <p class="status" id="saveStatus"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footerText">Local, free, offline-friendly budget dashboard (HTML + Excel).</span>
+  </footer>
+
+  <script src="extract-sms.js"></script>
+</body>
+</html>

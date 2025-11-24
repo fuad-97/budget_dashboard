@@ -1,0 +1,19 @@
+.expense-form {
+  align-items: start;
+}
+
+.expense-form .full-row {
+  grid-column: 1 / -1;
+}
+
+.status {
+  grid-column: 1 / -1;
+  color: var(--success);
+  margin: 6px 0 0;
+}
+
+@media (max-width: 720px) {
+  .form-actions .btn {
+    width: 100%;
+  }
+}

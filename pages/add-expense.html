@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Add Expense</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="add-expense.css" />
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span data-i18n="pageTitle">Add Expense</span>
+    </div>
+    <nav class="nav-links">
+      <a href="../index.html" data-i18n="linkDashboard">Dashboard</a>
+      <a href="add-income.html" data-i18n="linkAddIncome">Add Income</a>
+      <a href="recurring.html" data-i18n="linkRecurring">Recurring</a>
+      <a href="extract-sms.html" data-i18n="linkSMS">Extract SMS</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active">EN</button>
+      <button id="btn-ar" class="lang-btn">عربي</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero-card">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="formTitle">Add a manual expense</h2>
+          <p class="hint" data-i18n="formHint">Store receipts and expenses locally. Works offline.</p>
+        </div>
+        <div class="badge">
+          <span>•</span>
+          <span data-i18n="localOnly">Local only</span>
+        </div>
+      </div>
+
+      <form id="expenseForm" class="form-grid expense-form">
+        <label class="input-field">
+          <span data-i18n="date">Date</span>
+          <input type="date" id="date" required />
+        </label>
+
+        <label class="input-field">
+          <span data-i18n="vendor">Vendor</span>
+          <input type="text" id="vendor" required placeholder="Store, Company" data-i18n-placeholder="vendorPlaceholder" />
+        </label>
+
+        <label class="input-field">
+          <span data-i18n="category">Category</span>
+          <input type="text" id="category" required placeholder="Groceries, Rent" data-i18n-placeholder="categoryPlaceholder" />
+        </label>
+
+        <label class="input-field">
+          <span data-i18n="amount">Amount</span>
+          <input type="number" id="amount" required min="0" step="0.001" placeholder="0.000" />
+        </label>
+
+        <label class="input-field full-row">
+          <span data-i18n="receipt">Receipt (image/pdf)</span>
+          <input type="file" id="receipt" accept="image/*,.pdf" />
+        </label>
+
+        <div class="form-actions full-row">
+          <button type="submit" class="btn btn-primary" data-i18n="save">Save</button>
+          <a href="../index.html" class="btn btn-ghost" data-i18n="back">Back to dashboard</a>
+        </div>
+        <p id="status" class="status" role="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footerText">Local, free, offline-friendly budget dashboard (HTML + Excel).</span>
+  </footer>
+
+  <script src="add-expense.js"></script>
+</body>
+</html>

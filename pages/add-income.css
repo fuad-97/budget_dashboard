@@ -1,0 +1,14 @@
+.income-form .full-row {
+  grid-column: 1 / -1;
+}
+
+.income-form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+@media (max-width: 720px) {
+  .form-actions .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,13 @@
+.recurring-form .full-row {
+  grid-column: 1 / -1;
+}
+
+.table-card .section-head {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 720px) {
+  .form-actions .btn {
+    width: 100%;
+  }
+}

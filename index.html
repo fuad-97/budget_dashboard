@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <title>Budget Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span data-i18n="appTitle">Personal Budget Dashboard</span>
+    </div>
+    <nav class="nav-links">
+      <a href="pages/add-income.html" data-i18n="linkAddIncome">Add Income</a>
+      <a href="pages/add-expense.html" data-i18n="linkAddExpense">Add Expense</a>
+      <a href="pages/recurring.html" data-i18n="linkRecurring">Recurring</a>
+      <a href="pages/extract-sms.html" data-i18n="linkSMS">Extract SMS</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="btn-en" class="lang-btn active">EN</button>
+      <button id="btn-ar" class="lang-btn">عربي</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card hero-card">
+      <div class="section-head">
+        <div>
+          <h2 data-i18n="importTitle">Import Excel</h2>
+          <p class="hint" data-i18n="importHint">Upload a workbook with sheets named Income and Expenses.</p>
+        </div>
+        <div class="badge">
+          <span>•</span>
+          <span data-i18n="localOnly">Local only</span>
+        </div>
+      </div>
+      <div class="controls">
+        <input type="file" id="excelFile" accept=".xlsx,.xls" />
+        <button class="btn btn-primary" id="exportBtn" data-i18n="exportExcel">Export to Excel</button>
+      </div>
+      <p class="hint" data-i18n="importNote">No server required. Everything stays in your browser.</p>
+    </section>
+
+    <section class="grid grid-3">
+      <div class="card kpi">
+        <h3 data-i18n="totalIncome">Total Income</h3>
+        <div id="totalIncomeValue" class="kpi-value">0.000 OMR</div>
+        <div id="incomeCount" class="kpi-sub"></div>
+      </div>
+      <div class="card kpi">
+        <h3 data-i18n="totalExpenses">Total Expenses</h3>
+        <div id="totalExpensesValue" class="kpi-value">0.000 OMR</div>
+        <div id="expenseCount" class="kpi-sub"></div>
+      </div>
+      <div class="card kpi">
+        <h3 data-i18n="netBalance">Net Balance</h3>
+        <div id="netBalanceValue" class="kpi-value">0.000 OMR</div>
+        <div id="savingsRate" class="kpi-sub">0%</div>
+      </div>
+    </section>
+
+    <section class="grid grid-2 charts">
+      <div class="card">
+        <div class="section-head">
+          <h3 data-i18n="chartNetMonthly">Net Monthly Trend</h3>
+          <span class="pill" data-i18n="localOnly">Local only</span>
+        </div>
+        <canvas id="netChart"></canvas>
+      </div>
+      <div class="card">
+        <div class="section-head">
+          <h3 data-i18n="chartIncomeVsExpenses">Income vs Expenses</h3>
+          <span class="pill" data-i18n="localOnly">Local only</span>
+        </div>
+        <canvas id="incomeExpensesChart"></canvas>
+      </div>
+      <div class="card">
+        <div class="section-head">
+          <h3 data-i18n="chartByCategory">Expenses by Category</h3>
+          <span class="pill" data-i18n="localOnly">Local only</span>
+        </div>
+        <canvas id="categoryChart"></canvas>
+      </div>
+      <div class="card">
+        <h3 data-i18n="recentHintTitle">Tip</h3>
+        <p data-i18n="recentHintBody">Use this dashboard regularly to track your spending habits and improve your savings.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-i18n="footerText">Local, free, offline-friendly budget dashboard (HTML + Excel).</span>
+  </footer>
+
+  <script src="export.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
