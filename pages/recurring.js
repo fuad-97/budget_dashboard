@@ -18,6 +18,7 @@ const recurringTranslations = {
     update: "Update",
     edit: "Edit",
     delete: "Delete",
+    deduct: "Deduct",
     reset: "Reset",
     actions: "Actions",
     emptyState: "No recurring expenses yet. Add your first item above.",
@@ -44,6 +45,7 @@ const recurringTranslations = {
     update: "تحديث",
     edit: "تعديل",
     delete: "حذف",
+    deduct: "خصم",
     reset: "إعادة ضبط",
     actions: "العمليات",
     emptyState: "لا توجد مصاريف متكررة بعد. أضف أول بند في الأعلى.",
@@ -126,6 +128,7 @@ function renderExpenses() {
       <td class="actions-col">
         <div class="table-row-actions">
           <button type="button" class="table-action edit" data-index="${index}">${dict.edit}</button>
+          <button type="button" class="table-action deduct" data-index="${index}">${dict.deduct}</button>
           <button type="button" class="table-action delete" data-index="${index}">${dict.delete}</button>
         </div>
       </td>
@@ -135,6 +138,9 @@ function renderExpenses() {
 
   expensesBody.querySelectorAll(".table-action.edit").forEach(btn => {
     btn.addEventListener("click", () => editExpense(Number(btn.dataset.index)));
+  });
+  expensesBody.querySelectorAll(".table-action.deduct").forEach(btn => {
+    btn.addEventListener("click", () => deductExpense(Number(btn.dataset.index)));
   });
   expensesBody.querySelectorAll(".table-action.delete").forEach(btn => {
     btn.addEventListener("click", () => deleteExpense(Number(btn.dataset.index)));
@@ -208,6 +214,20 @@ function deleteExpense(index) {
   saveRecurringExpenses();
   renderExpenses();
   clearForm();
+}
+
+function deductExpense(index) {
+  const item = recurringExpenses[index];
+  if (!item) return;
+  const dict = getDict();
+  const input = prompt(dict.deduct, item.amount);
+  if (input === null) return;
+  const deduction = Number(input);
+  if (isNaN(deduction) || deduction < 0) return;
+  const newAmount = Math.max(0, Number(item.amount) - deduction);
+  recurringExpenses[index] = { ...item, amount: newAmount };
+  saveRecurringExpenses();
+  renderExpenses();
 }
 
 // Sync with main dashboard
